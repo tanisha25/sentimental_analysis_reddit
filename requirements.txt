@@ -43,7 +43,7 @@ matplotlib==3.5.3
 maturin==1.8.1
 mdurl==0.1.2
 nltk==3.8.1
-numpy==1.20.3
+numpy==1.21.6
 oauthlib==3.2.2
 opt-einsum==3.3.0
 packaging==23.2
@@ -67,6 +67,7 @@ python-dateutil==2.9.0.post0
 python-dotenv==0.21.1
 pytz==2024.2
 pytz-deprecation-shim==0.1.0.post0
+pywin32==308
 redis==5.0.8
 regex==2024.4.16
 requests==2.31.0
@@ -76,10 +77,11 @@ rsa==4.9
 scikit-learn==1.0.2
 scipy==1.7.3
 seaborn==0.12.2
+semver==3.0.2
 six==1.17.0
 smmap==5.0.2
 SQLAlchemy==2.0.37
-streamlit==1.23.1
+streamlit==1.12.2
 tenacity==8.2.3
 tensorboard==2.11.2
 tensorboard-data-server==0.6.1
