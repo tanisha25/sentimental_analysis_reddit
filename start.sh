@@ -12,13 +12,9 @@ source .venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 
-# Start Flask app using Gunicorn
+# Start Flask app using Gunicorn on the public Render port ($PORT)
 .venv/bin/gunicorn -w 4 -b 0.0.0.0:$PORT app.app:app &
 FLASK_PID=$!
 
-# Start Streamlit app on a different port
-python -m streamlit run sentiment_app.py --server.port 8502 --server.headless true &
-STREAMLIT_PID=$!
-
-# Wait for both processes to exit
-wait $FLASK_PID $STREAMLIT_PID
+# Wait for the Flask process to exit
+wait $FLASK_PID
