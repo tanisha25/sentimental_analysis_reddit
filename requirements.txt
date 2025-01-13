@@ -43,7 +43,6 @@ pydeck==0.8.1b1
 Pygments==2.17.2
 Pympler==1.1
 pyparsing==3.1.4
-pypiwin32==223
 pyrsistent==0.19.3
 python-dateutil==2.9.0.post0
 python-dotenv==0.21.1
