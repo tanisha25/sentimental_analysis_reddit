@@ -1,5 +1,6 @@
 import nltk
-nltk.download('vader_lexicon')
+import os
+nltk.data.path.append(os.path.join(os.getcwd(), 'nltk_data'))
 
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
