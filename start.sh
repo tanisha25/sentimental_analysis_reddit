@@ -7,4 +7,4 @@ source .venv/bin/activate
 gunicorn -w 4 -b 0.0.0.0:$PORT app.app:app &
 
 # Start Streamlit app
-python -m streamlit run sentiment_app.py --server.port $PORT --server.headless true
+python -m streamlit run sentiment_app.py --server.port $(($PORT + 1)) --server.headless true
