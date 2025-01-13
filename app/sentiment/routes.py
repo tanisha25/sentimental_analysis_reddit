@@ -8,6 +8,7 @@ sentiment_bp = Blueprint('sentiment', __name__)
 # Route to fetch data from Reddit and analyze sentiment
 @sentiment_bp.route('/analyze', methods=['POST'])
 def analyze():
+    print("Hello world!!")
     data = request.get_json()
     topic = data.get('topic', '')
     
