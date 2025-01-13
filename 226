@@ -1,1 +1,11 @@
-Requirement already satisfied: pywin32 in c:\users\tanisha medewala\project\.venv\lib\site-packages (225)
+Requirement already satisfied: pywin32 in c:\users\tanisha medewala\project\.venv\lib\site-packages (223)
+Collecting pywin32
+  Downloading pywin32-308-cp37-cp37m-win_amd64.whl.metadata (8.3 kB)
+Downloading pywin32-308-cp37-cp37m-win_amd64.whl (6.6 MB)
+   ---------------------------------------- 6.6/6.6 MB 1.7 MB/s eta 0:00:00
+Installing collected packages: pywin32
+  Attempting uninstall: pywin32
+    Found existing installation: pywin32 223
+    Uninstalling pywin32-223:
+      Successfully uninstalled pywin32-223
+Successfully installed pywin32-308
