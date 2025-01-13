@@ -4,6 +4,7 @@ services:
     env: python
     plan: starter
     buildCommand: |
+      # Install dependencies from requirements.txt
       pip install -r requirements.txt
     startCommand: bash start.sh
     port: 5001
