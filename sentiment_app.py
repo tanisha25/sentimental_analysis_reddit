@@ -24,8 +24,9 @@ def analyze_sentiment():
         limit = st.slider("Select the number of posts:", 1, 10, 5)
         
         # Use FLASK_URL from environment or default to Render's backend URL
-        flask_url = os.environ.get("FLASK_URL", "https://sentimental-analysis-reddit.onrender.com/")
-        
+        #flask_url = os.environ.get("FLASK_URL", "https://sentimental-analysis-reddit.onrender.com/")
+        flask_url = f"http://localhost:{os.getenv('PORT')}"
+
         # Call the Flask API to get sentiment analysis
         try:
             response = requests.post(f"{flask_url}api/sentiment/analyze", json={"topic": topic, "limit": limit})
