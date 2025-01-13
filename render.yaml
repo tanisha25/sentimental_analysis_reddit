@@ -3,16 +3,14 @@ services:
     name: flask-app
     env: python
     plan: starter
-    buildCommand: pip install -r requirements.txt
+    buildCommand: |
+      pip install -r requirements.txt
     startCommand: bash start.sh
 
   - type: web
     name: streamlit-app
     env: python
     plan: starter
-    buildCommand: pip install -r requirements.txt
-    startCommand: python -m streamlit run sentiment_app.py --server.port $PORT --server.headless true
-
-envVars:
-  - key: FLASK_URL
-    value: "http://flask-app:$PORT"
+    buildCommand: |
+      pip install -r requirements.txt
+    startCommand: python -m streamlit run streamlit.py --server.port 8502 --server.headless true
