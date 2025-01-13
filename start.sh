@@ -2,8 +2,8 @@
 # Activate the virtual environment
 source .venv/bin/activate
 
-# Export FLASK_URL for Streamlit
-export FLASK_URL=http://0.0.0.0:5001
+# Use the PORT provided by Render
+export FLASK_URL="http://0.0.0.0:$PORT"
 
 # Start Flask app using Gunicorn
-gunicorn -w 4 -b 0.0.0.0:5001 app.app:app
+gunicorn -w 4 -b 0.0.0.0:$PORT app.app:app

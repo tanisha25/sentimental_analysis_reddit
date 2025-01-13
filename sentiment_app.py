@@ -23,7 +23,7 @@ def analyze_sentiment():
     if topic:
         # Set the limit for the number of posts to fetch
         limit = st.slider("Select the number of posts:", 1, 10, 5)
-        flask_url = os.environ.get("FLASK_URL", "http://127.0.0.1:5000/")  
+        flask_url = os.environ.get("FLASK_URL", f"http://127.0.0.1:{os.environ.get('PORT', 5000)}/")
         # Call the Flask API to get sentiment analysis
         response = requests.post(flask_url + "api/sentiment/analyze", json={"topic": topic, "limit": limit})
 

@@ -11,8 +11,8 @@ services:
     env: python
     plan: starter
     buildCommand: pip install -r requirements.txt
-    startCommand: python -m streamlit run sentiment_app.py --server.port 8502 --server.headless true
+    startCommand: python -m streamlit run sentiment_app.py --server.port $PORT --server.headless true
 
 envVars:
   - key: FLASK_URL
-    value: "http://flask-app:5001"
+    value: "http://flask-app:$PORT"
