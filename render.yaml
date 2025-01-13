@@ -5,5 +5,5 @@ services:
     plan: starter
     buildCommand: |
       pip install -r requirements.txt
-    startCommand: ./start.sh
+    startCommand: bash start.sh
     port: 5001
