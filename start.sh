@@ -4,7 +4,7 @@
 source .venv/bin/activate
 
 # Start Flask app using Gunicorn in the background
-gunicorn -w 4 -b 0.0.0.0:$PORT app.app:app &
+gunicorn -w 4 -b 0.0.0.0:5001 app.app:app &
 
 # Start Streamlit app using the same port
 # Use subprocess to run Streamlit on the same port
