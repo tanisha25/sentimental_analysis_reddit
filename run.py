@@ -12,13 +12,13 @@ logger = configure_logger()
 
 def run_flask():
     """Function to run Flask app."""
-    app.run(debug=True, use_reloader=False)  # Disable reloader to avoid running Flask twice
+    app.run(debug=True, use_reloader=False, port=5001)  # Disable reloader to avoid running Flask twice
 
 def run_streamlit():
     """Function to run Streamlit app."""
     try:
         # Run Streamlit app using subprocess
-        subprocess.run([sys.executable, "-m", "streamlit", "run", "sentiment_app.py"])
+        subprocess.run([sys.executable, "-m", "streamlit", "run", "sentiment_app.py", "--server.port", "8502"])
     except Exception as e:
         logger.error(f"Error running Streamlit: {e}")
 
