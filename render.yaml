@@ -1,8 +1,16 @@
 services:
   - type: web
-    name: sentimental-analysis-reddit-app
+    name: flask-app
     env: python
-    plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: python run.py
-    python_version: 3.13.0
+    plan: starter
+    buildCommand: |
+      pip install -r requirements.txt
+    startCommand: bash start.sh
+
+  - type: web
+    name: streamlit-app
+    env: python
+    plan: starter
+    buildCommand: |
+      pip install -r requirements.txt
+    startCommand: python -m streamlit run sentiment_app.py --server.port 8502 --server.headless true

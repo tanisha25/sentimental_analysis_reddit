@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/98d2572f-6f48-4172-a8d1-99f37ccdbbf7/resourceGroups/azuredeployment/providers/Microsoft.Web/sites/sentimental-analysis-reddit",
+    "appService.deploySubpath": "."
+}
