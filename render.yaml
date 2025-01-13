@@ -13,4 +13,4 @@ services:
     plan: starter
     buildCommand: |
       pip install -r requirements.txt
-    startCommand: python -m streamlit run streamlit_app.py --server.port 8502 --server.headless true
+    startCommand: python -m streamlit run sentiment_app.py --server.port 8502 --server.headless true
