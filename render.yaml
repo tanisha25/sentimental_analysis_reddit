@@ -3,6 +3,6 @@ services:
     name: sentimental-analysis-reddit-app
     env: python
     plan: free
-    buildCommand: pip install -r ./requirements.txt
+    buildCommand: pip install -r requirements.txt
     startCommand: python run.py
     python_version: 3.13.0
