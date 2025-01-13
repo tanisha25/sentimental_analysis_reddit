@@ -3,14 +3,12 @@ services:
     name: flask-app
     env: python
     plan: starter
-    buildCommand: |
-      pip install -r requirements.txt
+    buildCommand: pip install -r requirements.txt
     startCommand: bash start.sh
 
   - type: web
     name: streamlit-app
     env: python
     plan: starter
-    buildCommand: |
-      pip install -r requirements.txt
+    buildCommand: pip install -r requirements.txt
     startCommand: python -m streamlit run sentiment_app.py --server.port 8502 --server.headless true
