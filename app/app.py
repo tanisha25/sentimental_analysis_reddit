@@ -24,7 +24,7 @@ def run_streamlit():
     """Function to run Streamlit app."""
     try:
         # Get the Streamlit port from the environment variable
-        streamlit_port = os.getenv('STREAMLIT_PORT', '8502')  # Default to 8502 if not set
+        streamlit_port = os.getenv('PORT', '8502')  # Default to 8502 if not set
         # Run Streamlit app using subprocess
         subprocess.run([sys.executable, "-m", "streamlit", "run", "sentiment_app.py", "--server.port", streamlit_port, "--server.headless", "true"])
     except Exception as e:
