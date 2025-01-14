@@ -3,5 +3,5 @@ services:
     name: flask-streamlit-app
     env: python
     buildCommand: pip install -r requirements.txt  # Runs the start.sh script to install dependencies and start both Flask and Streamlit
-    startCommand: gunicorn -w 4 -b 0.0.0.0:8080 app:app
+    startCommand: gunicorn app:create_app --bind 0.0.0.0:$PORT
 
