@@ -1,6 +1,10 @@
 services:
   - type: web
-    name: flask-app
+    name: sentimental-ml
     env: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "python app.app:app"
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app 
+    envVars:
+      - key: PORT
+        value: 8000
