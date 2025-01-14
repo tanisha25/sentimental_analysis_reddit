@@ -29,7 +29,7 @@ def analyze_sentiment():
 
         # Call the Flask API to get sentiment analysis
         try:
-            response = requests.post(f"{flask_url}api/sentiment/analyze", json={"topic": topic, "limit": limit})
+            response = requests.post(f"{flask_url}", json={"topic": topic, "limit": limit})
 
             if response.status_code == 200:
                 data = response.json()
