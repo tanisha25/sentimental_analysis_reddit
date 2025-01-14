@@ -13,4 +13,4 @@ pip install --upgrade pip
 pip install -r requirements.txt
 
 # Start Flask app using Gunicorn on the public Render port ($PORT)
-exec gunicorn -w 4 -b 0.0.0.0:$PORT app:app
+exec gunicorn -w 4 -b 0.0.0.0:$PORT app.app:app
