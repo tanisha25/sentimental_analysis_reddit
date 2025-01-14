@@ -1,8 +1,5 @@
 services:
-  - type: web
-    name: flask-streamlit-app
+  - name: sentimental-ml
+    type: web
     env: python
-    buildCommand: pip install -r requirements.txt  # Runs the start.sh script to install dependencies and start both Flask and Streamlit
-    startCommand: gunicorn app:create_app --bind 0.0.0.0:$PORT
-    staticPublishPath: ./static  # Only if you have static files
-
+    buildCommand: pip install -r requirements.txt
