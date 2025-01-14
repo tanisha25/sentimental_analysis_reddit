@@ -10,6 +10,6 @@ def create_app():
     CORS(app)
 
     # Register Blueprints
-    app.register_blueprint(sentiment_bp, url_prefix='/api/sentiment')
+    app.register_blueprint(sentiment_bp, url_prefix='/')
 
     return app
