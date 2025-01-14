@@ -1,2 +1,2 @@
-web: python app/app.py # Run directly (not recommended)
+web: python app.py # Run directly (not recommended)
 
