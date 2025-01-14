@@ -1,6 +1,17 @@
 services:
   - type: web
-    name: flask-app
+    name: flask-streamlit-app
     env: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app
+    buildCommand: ./start.sh  # Runs the start.sh script to install dependencies and start both Flask and Streamlit
+    startCommand: ./start.sh  # Runs the start.sh script to start the app
+    plan: free
+    envVars:
+      - key: PORT
+        value: "8000"  # Flask will use port 8501
+      - key: FLASK_APP
+        value: "app"  # Path to the Flask app module
+    build:
+      env:
+        - key: FLASK_APP
+        value: "app"  # Path to the Flask app module
+       
