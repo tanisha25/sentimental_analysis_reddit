@@ -3,5 +3,4 @@ services:
     name: flask-app
     env: python
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn app.app:app --workers 4 --bind 0.0.0.0:$PORT"
-
+    startCommand: "python app.app:app"

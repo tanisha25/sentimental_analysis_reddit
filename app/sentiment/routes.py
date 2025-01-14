@@ -9,11 +9,11 @@ sentiment_bp = Blueprint(
     template_folder='templates'
 )
 
-@sentiment_bp.route('/', methods=['GET'])
+@sentiment_bp.route('/', methods=['GET','POST'])
 def index():
     return render_template('index.html')
 
-@sentiment_bp.route('/analyze', methods=['POST'])
+@sentiment_bp.route('/analyze', methods=['POST','GET'])
 def analyze_sentiment_route():
     topic = request.form['topic']
     limit = int(request.form['num_records'])
