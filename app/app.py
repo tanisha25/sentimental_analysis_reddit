@@ -25,7 +25,7 @@ def run_streamlit():
     try:
         # Use the same port as Flask app for Streamlit
         streamlit_port = os.getenv('PORT', '8501')  # Default to Flask's port
-        subprocess.run([sys.executable, "-m", "streamlit", "run", "sentiment_app.py", "--server.port", streamlit_port, "--server.headless", "true"])
+        subprocess.run([sys.executable, "-m", "streamlit", "run", "sentiment_app.py", "--server.port", 8503, "--server.headless", "true"])
     except Exception as e:
         logger.error(f"Error running Streamlit: {e}")
 

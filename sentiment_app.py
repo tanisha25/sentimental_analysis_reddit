@@ -25,7 +25,9 @@ def analyze_sentiment():
         
         # Use FLASK_URL from environment or default to Render's backend URL
         #flask_url = os.environ.get("FLASK_URL", "https://sentimental-analysis-reddit.onrender.com/")
-        flask_url = f"https://sentimental-analysis-reddit.onrender.com/api/sentiment/analyze"
+        flask_url = f"https://sentimental-analysis-reddit.onrender.com:{os.getenv('PORT')}/api/sentiment/analyze"
+
+
 
         # Call the Flask API to get sentiment analysis
         try:
