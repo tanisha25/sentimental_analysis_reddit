@@ -27,11 +27,11 @@ def analyze_sentiment():
         #flask_url = os.environ.get("FLASK_URL", "https://sentimental-analysis-reddit.onrender.com/")
         flask_url = f"https://sentimental-analysis-reddit.onrender.com:{os.getenv('FLASK_PORT')}/api/sentiment/analyze"
 
-
+        headers = {"Content-Type": "application/json"}
 
         # Call the Flask API to get sentiment analysis
         try:
-            response = requests.post(f"{flask_url}", json={"topic": topic, "limit": limit})
+            response = requests.post(f"{flask_url}", json={"topic": topic, "limit": limit}, headers=headers, timeout=30)
 
             if response.status_code == 200:
                 data = response.json()
