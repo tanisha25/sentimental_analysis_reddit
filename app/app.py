@@ -17,18 +17,18 @@ logger = configure_logger()
 
 def run_flask():
     """Function to run Flask app."""
-    flask_port = os.getenv('PORT', 5001)  # Use environment variable for Flask port, default to 5001
+    flask_port = os.getenv('FLASK_PORT', 5001)  # Use environment variable for Flask port, default to 5001
     try:
-        app.run(debug=True, use_reloader=False, port=int(flask_port), host='0.0.0.0')  # Disable reloader to avoid running Flask twice
+        app.run(debug=True, use_reloader=False, port=flask_port, host='0.0.0.0')  # Disable reloader to avoid running Flask twice
     except Exception as e:
         logger.error(f"Error running Flask: {e}")
 
 def run_streamlit():
     """Function to run Streamlit app."""
     try:
-        streamlit_port = os.getenv('PORT', '8501')  # Use environment variable for Streamlit port
+        streamlit_port = os.getenv('STREAMLIT_PORT', '8501')  # Use environment variable for Streamlit port, default to 8501
         subprocess.Popen([sys.executable, "-m", "streamlit", "run", "sentiment_app.py", "--server.port", streamlit_port, "--server.headless", "true"])
-        logger.info("Streamlit app is running.")
+        logger.info(f"Streamlit app is running on port {streamlit_port}.")
     except Exception as e:
         logger.error(f"Error running Streamlit: {e}")
 

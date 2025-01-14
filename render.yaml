@@ -6,8 +6,10 @@ services:
     startCommand: ./start.sh  # Runs the start.sh script to start the app
     plan: free
     envVars:
-      - key: PORT
-        value: "8501"  # Port number for the service, should match the port used by Flask and Streamlit
+      - key: FLASK_PORT
+        value: "8501"  # Flask will use port 8501
+      - key: STREAMLIT_PORT
+        value: "8502"  # Streamlit will use port 8502
       - key: FLASK_APP
         value: "app.app"  # Path to the Flask app module
       - key: STREAMLIT_APP

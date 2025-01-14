@@ -7,4 +7,4 @@ pip install -r requirements.txt
 python -m app.app &  # Start Flask app in the background
 
 # Start Streamlit app
-streamlit run sentiment_app.py --server.port $PORT --server.headless true  # Use the same port as Flask
+streamlit run sentiment_app.py --server.port 8502 --server.headless true  # Use the same port as Flask
