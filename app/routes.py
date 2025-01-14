@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify, render_template
-from app.sentiment.fetch_reddit import fetch_reddit_data
-from app.sentiment.analysis import analyze_sentiment
-from app.sentiment.graphs import generate_graphs
+from app.fetch_reddit import fetch_reddit_data
+from app.analysis import analyze_sentiment
+from app.graphs import generate_graphs
 
 sentiment_bp = Blueprint(
     'sentiment', 

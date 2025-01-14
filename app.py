@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 from app import create_app
-from app.utils.logger import configure_logger
+from app.logger import configure_logger
 
 # Load environment variables
 load_dotenv()
