@@ -13,5 +13,5 @@ app = create_app()
 logger = configure_logger()
 
 if __name__ == '__main__':
-    app.run(debug=True, use_reloader=False, port=os.getenv('PORT'), host='0.0.0.0')  # Disable reloader to avoid running Flask twice
-
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)

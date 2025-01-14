@@ -2,8 +2,8 @@ services:
   - type: web
     name: flask-streamlit-app
     env: python
-    buildCommand: ./start.sh  # Runs the start.sh script to install dependencies and start both Flask and Streamlit
-    startCommand: ./start.sh  # Runs the start.sh script to start the app
+    buildCommand: pip install -r requirements.txt  # Runs the start.sh script to install dependencies and start both Flask and Streamlit
+    startCommand: python -m app.app &  # Runs the start.sh script to start the app
     plan: free
     envVars:
       - key: PORT
