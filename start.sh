@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Create a virtual environment if not already created
+# Create virtual environment if not already created
 if [ ! -d ".venv" ]; then
   python -m venv .venv
 fi
@@ -8,9 +8,12 @@ fi
 # Activate the virtual environment
 source .venv/bin/activate
 
-# Install required dependencies
+# Install dependencies
 pip install --upgrade pip
 pip install -r requirements.txt
 
-# Start Flask app using Gunicorn on the public Render port ($PORT)
-exec gunicorn -w 4 -b 0.0.0.0:$PORT app.app:app
+# Start Flask app using Gunicorn, bind to $PORT
+.venv/bin/gunicorn -w 4 -b 0.0.0.0:$PORT app.app:app &
+
+# Start Streamlit app on port 8502
+python -m streamlit run sentiment_app.py --server.port 8502 --server.headless true
