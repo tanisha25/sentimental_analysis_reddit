@@ -6,7 +6,7 @@ from app.logger import configure_logger
 load_dotenv()
 
 app = create_app()
-configure_logger(app)
+configure_logger()
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 8080))
