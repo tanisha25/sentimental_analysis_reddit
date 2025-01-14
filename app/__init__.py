@@ -4,7 +4,7 @@ from app.utils.config import Config
 from app.sentiment.routes import sentiment_bp
 def create_app():
     app = Flask(__name__)
-    app.config.from_object('app.utils.config.Config')
+    #app.config.from_object('app.utils.config.Config')
 
     # Enable CORS for all routes
     CORS(app)

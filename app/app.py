@@ -17,7 +17,7 @@ logger = configure_logger()
 if __name__ == '__main__':
     if os.getenv('FLASK_ENV') == 'development':
         # Development mode: Use Flask's built-in server
-        app.run(debug=True, host='0.0.0.0', port=int(os.getenv('FLASK_PORT', 5000)))
+        app.run(debug=True, host='0.0.0.0', port=int(os.getenv('PORT', 5000)))
     else:
         # Production mode: Use Gunicorn directly (configured in the command line or Gunicorn config file)
         # Run the app using Gunicorn, if in production environment
