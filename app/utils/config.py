@@ -11,5 +11,3 @@ class Config:
     SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', 'sqlite:///sentiments.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-    # Model settings (if any specific model config required)
-    MODEL_PATH = os.getenv('MODEL_PATH', '../')

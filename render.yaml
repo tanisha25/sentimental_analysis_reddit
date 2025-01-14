@@ -1,22 +1,8 @@
 services:
   - type: web
-    name: flask-streamlit-app
+    name: blogging-website
     env: python
-    buildCommand: ./start.sh  # Runs the start.sh script to install dependencies and start both Flask and Streamlit
-    startCommand: ./start.sh  # Runs the start.sh script to start the app
     plan: free
-    envVars:
-      - key: FLASK_PORT
-        value: "8501"  # Flask will use port 8501
-      - key: STREAMLIT_PORT
-        value: "8502"  # Streamlit will use port 8502
-      - key: FLASK_APP
-        value: "app.app"  # Path to the Flask app module
-      - key: STREAMLIT_APP
-        value: "sentiment_app.py"  # Path to the Streamlit app
-    build:
-      env:
-        - key: FLASK_APP
-          value: "app.app"  # Path to the Flask app module
-        - key: STREAMLIT_APP
-          value: "sentiment_app.py"  # Path to the Streamlit app
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    pythonVersion: "3.13.1"

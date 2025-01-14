@@ -1,32 +1,37 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, render_template
 from app.sentiment.fetch_reddit import fetch_reddit_data
 from app.sentiment.analysis import analyze_sentiment
 from app.sentiment.graphs import generate_graphs
 
-sentiment_bp = Blueprint('sentiment', __name__)
+sentiment_bp = Blueprint(
+    'sentiment', 
+    __name__, 
+    template_folder='templates'
+)
 
-# Route to fetch data from Reddit and analyze sentiment
+@sentiment_bp.route('/', methods=['GET'])
+def index():
+    return render_template('index.html')
+
 @sentiment_bp.route('/analyze', methods=['POST'])
-def analyze():
-    print("Hello world!!")
-    data = request.get_json()
-    topic = data.get('topic', '')
+def analyze_sentiment_route():
+    topic = request.form['topic']
+    limit = int(request.form['num_records'])
     
-    # Ensure topic is provided
-    if not topic:
-        return jsonify({"error": "Topic is required"}), 400
+    # Fetch Reddit data
+    posts = fetch_reddit_data(topic, limit)
     
-    # Fetch data from Reddit for the topic
-    posts = fetch_reddit_data(topic)
-    
-    # Perform sentiment analysis
+    # Analyze sentiment
     sentiment_results = analyze_sentiment(posts)
     
-    # Generate graphs and pass the topic
-    sentiment_graph = generate_graphs(sentiment_results, topic)  # Pass topic here
+    # Generate graphs (bar chart and word cloud)
+    bar_chart_b64, word_cloud_b64 = generate_graphs(sentiment_results, topic)
     
-    # Return analysis results and graph
-    return jsonify({
-        "sentiment_analysis": sentiment_results,
-        "sentiment_graph": sentiment_graph
-    })
+    # Render the template with the data
+    return render_template(
+        'index.html',
+        topic=topic,
+        sentiment_results=sentiment_results,
+        bar_chart_b64=bar_chart_b64,
+        word_cloud_b64=word_cloud_b64
+    )
