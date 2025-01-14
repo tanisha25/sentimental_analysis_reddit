@@ -16,4 +16,4 @@ logger = configure_logger()
 if __name__ == '__main__':
     # Get Flask port from environment or default to 5001
     # flask_port = int(os.getenv('FLASK_PORT', 5001))
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True)
