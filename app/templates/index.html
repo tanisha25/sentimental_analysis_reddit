@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,8 +15,6 @@
             justify-content: center;
             flex-direction: column;
             align-items: center;
-            height: 100vh;
-            box-sizing: border-box;
         }
 
         h1 {
@@ -35,7 +32,6 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border: 1px solid #ddd;
-            box-sizing: border-box;
         }
 
         label {
@@ -44,8 +40,7 @@
             color: #333;
         }
 
-        input[type="text"],
-        input[type="number"] {
+        input[type="text"], input[type="number"] {
             padding: 10px;
             margin: 10px 0;
             width: 100%;
@@ -74,15 +69,14 @@
             background-color: #FF3700; /* Slightly darker red */
         }
 
-        h2,
-        h3 {
+        h2, h3 {
             color: #333;
             margin-top: 40px;
             text-align: center;
         }
 
         img {
-            max-width: 90%;
+            max-width: 100%;
             height: auto;
             border: 1px solid #ddd;
             margin-bottom: 20px;
@@ -92,7 +86,6 @@
         ul {
             list-style-type: none;
             padding-left: 0;
-            text-align: center;
         }
 
         li {
@@ -119,9 +112,7 @@
                 padding: 15px;
             }
 
-            label,
-            input,
-            button {
+            label, input, button {
                 width: 100%;
             }
 
@@ -130,8 +121,7 @@
                 padding: 10px 15px;
             }
 
-            h2,
-            h3 {
+            h2, h3 {
                 font-size: 1.5em;
             }
         }
@@ -146,9 +136,7 @@
                 padding: 10px;
             }
 
-            label,
-            input,
-            button {
+            label, input, button {
                 width: 100%;
             }
 
@@ -157,8 +145,7 @@
                 padding: 8px 12px;
             }
 
-            h2,
-            h3 {
+            h2, h3 {
                 font-size: 1.4em;
             }
 
@@ -175,7 +162,6 @@
         }
     </style>
 </head>
-
 <body>
     <div>
         <!-- Reddit Logo -->
@@ -183,6 +169,7 @@
 
         <h1>Reddit Sentiment Analysis</h1>
 
+        <!-- Form to submit topic and number of records -->
         <form method="POST" action="{{ url_for('sentiment.analyze_sentiment_route') }}">
             <label for="topic">Topic:</label>
             <input type="text" id="topic" name="topic" required><br><br>
@@ -193,15 +180,19 @@
             <button type="submit">Submit</button>
         </form>
 
+        <!-- Sentiment Analysis Results -->
         {% if topic %}
             <h2>Sentiment Analysis Results for "{{ topic }}"</h2>
 
+            <!-- Display Sentiment Bar Chart -->
             <h3>Sentiment Bar Chart</h3>
             <img src="data:image/png;base64,{{ bar_chart_b64 }}" alt="Sentiment Bar Chart">
 
+            <!-- Display Sentiment Word Cloud -->
             <h3>Sentiment Word Cloud</h3>
             <img src="data:image/png;base64,{{ word_cloud_b64 }}" alt="Sentiment Word Cloud">
 
+            <!-- Display Latest Reddit Posts with Sentiment Analysis -->
             <h3>Latest Reddit Posts</h3>
             <ul>
                 {% for post in sentiment_results %}
@@ -211,5 +202,4 @@
         {% endif %}
     </div>
 </body>
-
 </html>
