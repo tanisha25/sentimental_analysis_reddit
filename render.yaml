@@ -1,7 +1,0 @@
-services:
-  - name: sentimental-ml
-    type: web
-    env: python
-    buildCommand: |
-    pip install -r requirements.txt
-    pytest test_sentiments.py  # Add this to run tests during the build
