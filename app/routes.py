@@ -7,15 +7,16 @@ from app.models import SentimentAnalysis
 from app.logger import configure_logger
 sentiment_bp = Blueprint(
     'sentiment', 
-    __name__, 
+    __name__,
     template_folder='templates'
 )
-logger = configure_logger()  # Get the logger instance
 
+logger = configure_logger()  # Get the logger instance
 
 @sentiment_bp.route('/', methods=['GET','POST'])
 def index():
     return render_template('index.html')
+
 
 @sentiment_bp.route('/analyze', methods=['POST', 'GET'])
 @cache.cached(timeout=3600, key_prefix=lambda: request.form.get('topic') or request.args.get('topic', ''))
@@ -28,7 +29,7 @@ def analyze_sentiment_route():
         return jsonify({"error": "Topic is required"}), 400
 
     # Check if data exists in Postgres
-    sentiment_results = SentimentAnalysis.query.filter_by(topic=topic).all()
+    sentiment_results = SentimentAnalysis.query.filter_by(topic=topic).order_by(SentimentAnalysis.created_at.desc()).limit(limit).all()
 
     if sentiment_results:
         logger.info("Data fetched from sentimental analysis table")
@@ -70,3 +71,4 @@ def analyze_sentiment_route():
         bar_chart_b64=bar_chart_b64,
         word_cloud_b64=word_cloud_b64
     )
+  
