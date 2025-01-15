@@ -58,17 +58,17 @@ def test_database_integration(client):
     with client.application.app_context():
         new_record = SentimentAnalysis(
             topic='science',
-            title= "So, apparently Most IPV-related single suicides were of men who perpetrated nonfatal IPV  ",
-            content = "[https://www.sciencedirect.com/science/article/pii/S2352827322000581](https://www.sciencedirect.com/science/article/pii/S2352827322000581)\n\n>It remains unclear how often and under what circumstances intimate partner violence (IPV) precedes suicide. Available research on IPV and suicide focuses largely on homicide-suicide, which is a rare event (<2% of suicides). We focus instead on single suicides (i.e., suicides unconnected to other violent deaths), which are the most common type of fatal violence in the US.Unfortunately, information about IPV circumstances is often unavailable for suicides. To address this gap, we sought to identify the proportion of single suicides that were preceded by IPV in North Carolina (NC), to describe the prevalence of IPV victimization and perpetration as precursors to suicide, and to explore how IPV-related suicides differ from other suicides. We used data from the NC Violent Death Reporting System (2010–2017, n = 9682 single suicides) and hand-reviewed textual data for a subset of cases (n = 2440) to document IPV circumstances.We had robust inter-rater reliability (Kappa: 0.73) and identified n = 439 IPV-related suicides. Most were males who had perpetrated nonfatal IPV (n = 319, 72.7%) prior to dying by suicide. Our findings suggest that IPV was a precursor for at least 4.5% of single [suicides.Next](http://suicides.Next), we conducted logistic [regression analyses](https://www.sciencedirect.com/topics/psychology/regression-analysis) by sex comparing IPV-related suicides to other suicides. For both men and women, IPV was more common when the person who died by suicide had recently disclosed suicidal [intent](https://www.sciencedirect.com/topics/psychology/intention), was younger, used a firearm, and was involved with the criminal legal system, even after controlling for covariates. We also found sex-specific correlates for IPV circumstances in suicide.Combined with homicide-suicide data (reported elsewhere), IPV is likely associated with 6.1% or more of suicides overall. Results suggest clear missed opportunities to intervene for this unique subpopulation, such as suicide screening and referral in IPV settings (e.g., batterer intervention programs, Family Justice Centers) that is tailored by sex.\n\n[https://www.sciencedirect.com/science/article/abs/pii/S1054139X24004531#:\\~:text=Among%20IPV%2Drelated%20suicides%2C%20most%20decedents%20were%20male%20and%20were%20described%20as%20IPV%20perpetrators.%20Physical%20IPV%20was%20most%20frequently%20reported.](https://www.sciencedirect.com/science/article/abs/pii/S1054139X24004531#:~:text=Among%20IPV%2Drelated%20suicides%2C%20most%20decedents%20were%20male%20and%20were%20described%20as%20IPV%20perpetrators.%20Physical%20IPV%20was%20most%20frequently%20reported)\n\n>Among IPV-related suicides, most decedents were male and were described as IPV perpetrators. Physical IPV was most frequently reported. Compared to decedents with a history of IPV perpetration, decedents with a history of IPV victimization were more often female and younger. Narratives of IPV victim decedents had higher odds of reporting physical IPV; narratives of IPV perpetrator decedents had higher odds of reporting psychological IPV.\n\nAny counter-studies?",
-            sentiment='NEGATIVE',
-            score=-0.9971
+            title = "I go to Loyola Maryland and don't know what to major",
+            content = "I enjoy Finance and tech. I was aiming to make the most money out of college and was stuck between data science or Finance. Any help?",
+            sentiment='POSITIVE',
+            score=0.5994
         )
         db.session.add(new_record)
         db.session.commit()
 
         record = SentimentAnalysis.query.filter_by(topic='science').first()
         assert record is not None
-        assert record.sentiment == 'NEGATIVE'
+        assert record.sentiment == 'POSITIVE'
 
 
 
