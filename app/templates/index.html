@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +16,8 @@
             justify-content: center;
             flex-direction: column;
             align-items: center;
+            height: 100vh;
+            box-sizing: border-box;
         }
 
         h1 {
@@ -32,6 +35,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border: 1px solid #ddd;
+            box-sizing: border-box;
         }
 
         label {
@@ -40,7 +44,8 @@
             color: #333;
         }
 
-        input[type="text"], input[type="number"] {
+        input[type="text"],
+        input[type="number"] {
             padding: 10px;
             margin: 10px 0;
             width: 100%;
@@ -69,14 +74,15 @@
             background-color: #FF3700; /* Slightly darker red */
         }
 
-        h2, h3 {
+        h2,
+        h3 {
             color: #333;
             margin-top: 40px;
             text-align: center;
         }
 
         img {
-            max-width: 100%;
+            max-width: 90%;
             height: auto;
             border: 1px solid #ddd;
             margin-bottom: 20px;
@@ -86,6 +92,7 @@
         ul {
             list-style-type: none;
             padding-left: 0;
+            text-align: center;
         }
 
         li {
@@ -112,7 +119,9 @@
                 padding: 15px;
             }
 
-            label, input, button {
+            label,
+            input,
+            button {
                 width: 100%;
             }
 
@@ -121,7 +130,8 @@
                 padding: 10px 15px;
             }
 
-            h2, h3 {
+            h2,
+            h3 {
                 font-size: 1.5em;
             }
         }
@@ -136,7 +146,9 @@
                 padding: 10px;
             }
 
-            label, input, button {
+            label,
+            input,
+            button {
                 width: 100%;
             }
 
@@ -145,7 +157,8 @@
                 padding: 8px 12px;
             }
 
-            h2, h3 {
+            h2,
+            h3 {
                 font-size: 1.4em;
             }
 
@@ -162,6 +175,7 @@
         }
     </style>
 </head>
+
 <body>
     <div>
         <!-- Reddit Logo -->
@@ -197,4 +211,5 @@
         {% endif %}
     </div>
 </body>
+
 </html>
