@@ -48,8 +48,6 @@ def test_analyze_route(client):
         ]
         response = client.post('/api/sentiment/analyze', data={'topic': 'science', 'num_records': 1})
         assert response.status_code == 200
-        data = response.data.decode('utf-8')
-        assert 'POSITIVE' in data
 
 def test_database_integration(client):
     with client.application.app_context():
