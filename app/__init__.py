@@ -15,7 +15,7 @@ def create_app():
     
     # Flask-Caching Configuration
     app.config['CACHE_TYPE'] = os.getenv('CACHE_TYPE')
-    app.config['CACHE_REDIS_URL'] = os.getenv('CACHE_REDIS_URL')
+    app.config['CACHE_REDIS_URL'] = os.getenv('REDIS_URL')
     app.config['CACHE_REDIS_PORT'] = os.getenv('CACHE_REDIS_PORT')
     app.config['CACHE_DEFAULT_TIMEOUT'] = os.getenv('CACHE_DEFAULT_TIMEOUT')  # Cache timeout in seconds
     db.init_app(app)
